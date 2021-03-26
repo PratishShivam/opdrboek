@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Filialen index{% endblock %}
+
+{% block body %}
+    <h1>Filialen index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Adres</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for filialen in filialens %}
+            <tr>
+                <td>{{ filialen.id }}</td>
+                <td>{{ filialen.Naam }}</td>
+                <td>{{ filialen.Adres }}</td>
+                <td>
+                    <a href="{{ path('filialen_show', {'id': filialen.id}) }}">show</a>
+                    <a href="{{ path('filialen_edit', {'id': filialen.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('filialen_new') }}">Create new</a>
+{% endblock %}

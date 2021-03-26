@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Filialen{% endblock %}
+
+{% block body %}
+    <h1>Edit Filialen</h1>
+
+    {{ include('filialen/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('filialen_index') }}">back to list</a>
+
+    {{ include('filialen/_delete_form.html.twig') }}
+{% endblock %}
